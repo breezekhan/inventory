@@ -30,17 +30,17 @@ const styles = StyleSheet.create(
             fontSize: wp('4.5%'),
             color: Colors.black,
             fontWeight: 'bold',
-            fontFamily: Fonts.Lato_Bold,
-            textAlign: 'left',
-            width: wp('42%')
+            alignSelf:"center"
+           
+            
         },
         text_value: {
             fontSize: wp('4%'),
             color: Colors.black,
             marginLeft: hp('1%'),
             // fontWeight: 'bold',
-            marginVertical: hp('0.5%'),
-            fontFamily: Fonts.Lato_Reguler,
+            marginVertical: hp('2%'),
+           
         },
         text_das: {
             fontSize: wp('3.5%'),
@@ -142,7 +142,8 @@ const styles = StyleSheet.create(
 
         },
         List: {
-            marginHorizontal: wp('4%'),
+            marginHorizontal: wp('2%'),
+           // alignItems:'center'
             // marginVertical: wp('1%'),
             // borderWidth: wp('0.2%'),
             // borderRadius: wp('2%'),

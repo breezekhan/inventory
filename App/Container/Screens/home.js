@@ -154,7 +154,7 @@ const Home = ({ navigation }) => {
                                 <AntDesign name={"star"} color={"gold"} size={wp("4%")} />
                                 </View>
                                 <View style={[styles.box_trans]}>
-                                    <Text style={[styles.txt_price, { marginLeft: wp('1%') }]}>${item.price}</Text>
+                                    <Text style={[styles.txt_price, { marginLeft: wp('1%') }]}>${Math.round(item.price)}</Text>
                                 </View>
                                
                                 </View>

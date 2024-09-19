@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     },
     text_bold: {
         fontSize: wp('4%'),
-        color: Colors.black,
-        fontFamily: Fonts.Lato_Bold,
+        color: Colors.white,
+       fontWeight:'bold',
         marginVertical: hp('0.5%')
     },
     text_key: {
@@ -81,9 +81,10 @@ const styles = StyleSheet.create({
     row_total: {
         // flex:1,
          flexDirection: 'row',
-         justifyContent: 'flex-end',
+        // justifyContent: 'flex-end',
          alignItems: 'center',
-         marginVertical:hp('0.5%')
+         marginVertical:hp('0.5%'),
+         marginHorizontal:wp("2%")
          //backgroundColor:'pink'
      },
     box: {
@@ -165,7 +166,7 @@ total: {
 },
 txttotal: {
     fontWeight: "bold", color: 'black',
-    fontSize: wp('5%'),marginVertical:hp('1%') ,fontFamily: Fonts.Lato_Bold,
+    fontSize: wp('5%'),marginVertical:hp('1%') ,fontWeight:"bold"
 },
 txt_underline: {
     fontWeight: "bold", color: 'black',
@@ -176,14 +177,15 @@ txt_underline: {
 },
 button: {
     alignItems: 'center',
-  
+//   alignSelf:'flex-end',
     justifyContent: 'center',
    
      backgroundColor: Colors.Button,
-    borderRadius: 10,
+    borderRadius: wp("2%"),
     marginVertical: "1%",
    
     padding: wp('2%'),
+    width:wp("50%")
   
 },
 

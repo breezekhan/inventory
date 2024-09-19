@@ -29,6 +29,7 @@ import Product_Detail from "../Container/Screens/product_detail";
 
 import Cart from "../Container/Screens/cart";
 import SignUp from "../Container/Screens/signup";
+import { useSelector } from "react-redux";
 
 
 
@@ -64,24 +65,16 @@ const HomeTab = () => {
         <HomeTabStack.Navigator initialRouteName="home">
             <HomeTabStack.Screen name="home" component={Home} options={{ headerShown: false }} />
             <HomeTabStack.Screen name="profile" component={Profile} options={{ headerShown: false }} />
-           
             <HomeTabStack.Screen name="product_detail" component={Product_Detail} options={{ headerShown: false }} />
             <HomeTabStack.Screen name="cart" component={Cart} options={{ headerShown: false }} />
-          
-          
-            
         </HomeTabStack.Navigator>
     )
 };
 
 const ProductTab = () => {
     return (
-        <ProductTabStack.Navigator initialRouteName="products">
-            <ProductTabStack.Screen name="products" component={Product} options={{ headerShown: false }} />
-            <ProductTabStack.Screen name="product_detail" component={Product_Detail} options={{ headerShown: false }} />
-            <ProductTabStack.Screen name="ProfileTab" component={ProfileTab} options={{ headerShown: false }} />
+        <ProductTabStack.Navigator initialRouteName="cart">
             <ProductTabStack.Screen name="cart" component={Cart} options={{ headerShown: false }} />
-           
         </ProductTabStack.Navigator>
     )
 };
@@ -93,14 +86,15 @@ const ProfileTab = () => {
         <ProfileTabStack.Navigator initialRouteName="profile">
             <ProfileTabStack.Screen name="home" component={Home} options={{ headerShown: false }} />
             <ProfileTabStack.Screen name="profile" component={Profile} options={{ headerShown: false }} />
-           
+
         </ProfileTabStack.Navigator>
     )
 };
 
 const BottomTab = ({ }) => {
-  
 
+    const myCartItems = useSelector(state => state.cart);
+    console.log("yyyyrammmmmyyyyy", myCartItems)
     return (
         <Tab.Navigator
             initialRouteName="Home"
@@ -134,8 +128,8 @@ const BottomTab = ({ }) => {
                     },
                 }}
             />
-           <Tab.Screen
-                name="product"
+            {/* <Tab.Screen
+                name="cart"
 
                 component={ProductTab}
                 options={{
@@ -147,8 +141,48 @@ const BottomTab = ({ }) => {
                         top: -8, // Adjust the value as needed
                     },
                 }}
+            /> */}
+
+            <Tab.Screen
+                name="cart"
+                component={ProductTab}
+                options={{
+                    tabBarLabel: 'Cart',
+                    tabBarIcon: ({ focused }) => (
+                        <View>
+                            <FontAwesome6
+                                name="cart-shopping"
+                                color={focused ? Colors.Bottom : Colors.white}
+                                size={wp('6%')}
+                            />
+                            {myCartItems.length > 0 && (
+                                <View
+                                    style={{
+                                        position: 'absolute',
+                                        backgroundColor: 'red',
+                                        borderRadius: 10,
+                                        paddingHorizontal: 6,
+                                        paddingVertical: 2,
+                                        right: -8,
+                                        top: -5,
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <Text style={{ color: Colors.white, fontSize: 10 }}>
+                                        {myCartItems.length}
+                                    </Text>
+                                </View>
+                            )}
+                        </View>
+                    ),
+                    tabBarLabelStyle: {
+                        top: -8, // Adjust the value as needed
+                    },
+                }}
             />
-           
+
+
             <Tab.Screen
                 name="profile"
                 component={ProfileTab}

@@ -479,8 +479,8 @@ const styles = StyleSheet.create(
             br: { color: '#000000', textAlign: 'justify', },
         },
         box_trans1: {
-            bottom: 0,
-            position: 'absolute',
+            // bottom: 0,
+            // position: 'absolute',
             alignItems: 'center',
             backgroundColor: 'rgba(255, 255, 255, 0.6)',
             // backgroundColor: 'rgba(128, 128, 128, 0.4)',
@@ -488,8 +488,7 @@ const styles = StyleSheet.create(
             borderColor: 'rgba(128, 128, 128, 0.4)',
             borderRadius: wp('2%'),
             padding: wp('1%'),
-            width: wp('30%'),
-            alignSelf: 'flex-end'
+          
         },
 
     }

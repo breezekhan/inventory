@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import {
-    View, Text, TouchableOpacity, TextInput, ScrollView,
-    Image, Modal, FlatList, TouchableWithoutFeedback, BackHandler,
-    ImageBackground
+    View, Text, TouchableOpacity, TextInput, 
+    Image, BackHandler
 } from 'react-native';
 import styles from '../Styles/login_style';
 import { Colors } from '../../helpers';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
 import LoadingModal from '../../Utils/LoadingModal';
-import { getUserId, getUserName, getUserPass, getUserPhone, setCompId, setToken, setUserId, setUserPass, setUserPhone } from '../../Utils/MasterFunctions';
+import {  getUserPass, getUserPhone,  setUserId, setUserPass } from '../../Utils/MasterFunctions';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useRoute } from '@react-navigation/native';
@@ -30,15 +29,8 @@ const Login = ({ navigation }) => {
 
     const [mypassword, setMyPassword] = useState("");
     const [isPasswordVisible, setPasswordVisible] = useState(true);
-    const [modalVisible, setModalVisible] = useState(false);
-    const closeModal = () => {
-        setModalVisible(false);
-    }
-
-
-
-
-    const currentScreenName = route.name;
+  
+     const currentScreenName = route.name;
     const handleBackPress = () => {
         if (currentScreenName === "login") {
             BackHandler.exitApp();
@@ -76,7 +68,7 @@ const Login = ({ navigation }) => {
         // let userId = await getUserId();
         let mypass = await getUserPass();
         let myphone = await getUserPhone();
-        console.log("ayaaaaaaaaaaaaa", mypass, myphone);
+       // console.log("ayaaaaaaaaaaaaa", mypass, myphone);
         if (myphone !== null) {
             setPhone(myphone);
             setMyPhone(myphone);
