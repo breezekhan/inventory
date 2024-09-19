@@ -3,14 +3,14 @@ import {
     View, Text, TouchableOpacity, TextInput, ScrollView,
     Image,
 } from 'react-native';
-import styles from '../Styles/signup_style';
+import styles from '../Styles/edit_styles';
 import { Colors } from '../../helpers';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
 import LoadingModal from '../../Utils/LoadingModal';
-import { getUserId, getUserPass, getUserPhone, setCompId, setToken, setUserAdd, setUserEmail, setUserId, setUserName, setUserPass, setUserPhone } from '../../Utils/MasterFunctions';
+import { getUserAdd, getUserEmail, getUserId, getUserName, getUserPass, getUserPhone, setCompId, setToken, setUserAdd, setUserEmail, setUserId, setUserName, setUserPass, setUserPhone } from '../../Utils/MasterFunctions';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useRoute } from '@react-navigation/native';
 import { useFocusEffect } from '@react-navigation/native';
 import Images from '../../Utils/Images';
@@ -21,7 +21,7 @@ import Swiper from 'react-native-swiper';
 
 import { showToast } from '../../Utils/Utils';
 
-const SignUp = ({ navigation }) => {
+const Edit = ({ navigation }) => {
     const route = useRoute();
 
     const [loading, setLoading] = useState(false);
@@ -43,6 +43,28 @@ const SignUp = ({ navigation }) => {
         }
     }
 
+    useEffect(() => {
+        getUserIDFun();
+    }, [])
+    const getUserIDFun = async () => {
+
+        let userId = await getUserId();
+        let myname = await getUserName();
+        let myphone = await getUserPhone();
+        let myemail = await getUserEmail();
+        let myadd = await getUserAdd();
+        let mypass = await getUserPass();
+        console.log("ayaaaaa>>",mypass)
+        setName(myname)
+        setEmail(myemail)
+        setPhone(myphone)
+        setAddress(myadd)
+        setPassword(mypass)
+
+
+
+
+    };
 
 
     const SIGNUP = async () => {
@@ -85,11 +107,14 @@ const SignUp = ({ navigation }) => {
     return (
         <View style={styles.Container}>
             <ScrollView>
-                <View style={styles.Header}>
-                    <Image source={Images.LOGO} style={{ width: wp('60%'), height: hp('10%'), marginVertical: hp('4%') }} />
-                </View>
-                <Text style={styles.text_bold}>SignUp</Text>
-                <Text style={styles.Text}>Create your new account</Text>
+            <View style={styles.Header}>
+        <TouchableOpacity style={[styles.back_box, styles.shadowProp]} onPress={() => navigation.goBack()}  >
+          <Ionicons name="arrow-back" color={Colors.Primary} size={wp('6.5%')} />
+        </TouchableOpacity>
+        <Text style={styles.text_header}>Edit</Text>
+        <Text style={styles.text_header}></Text>
+      </View>
+
 
                 <View style={{ marginVertical: hp('2%') }}>
                     <View style={[styles.InputView, styles.shadowProp]}>
@@ -177,11 +202,9 @@ const SignUp = ({ navigation }) => {
                             onPress={() => SIGNUP()}
                             // onPress={() => setModalVisible(true)}
                             style={styles.button}>
-                            <Text style={[styles.ButtonText, {}]}>SignUp</Text>
+                            <Text style={[styles.ButtonText, {}]}>Update</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ alignItems: 'center', marginVertical: hp('1%') }} onPress={() => navigation.goBack()}>
-                            <Text style={styles.txt}>Already have an account?  <Text style={styles.txt_link}>Log in</Text></Text>
-                        </TouchableOpacity>
+
                     </View>
                 </View>
             </ScrollView>
@@ -190,4 +213,4 @@ const SignUp = ({ navigation }) => {
     );
 };
 
-export default SignUp;
+export default Edit;

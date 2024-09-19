@@ -68,7 +68,7 @@ const Login = ({ navigation }) => {
         // let userId = await getUserId();
         let mypass = await getUserPass();
         let myphone = await getUserPhone();
-       // console.log("ayaaaaaaaaaaaaa", mypass, myphone);
+        console.log("ayaaaaaaaaaaaaa", mypass, myphone);
         if (myphone !== null) {
             setPhone(myphone);
             setMyPhone(myphone);
@@ -174,7 +174,7 @@ const Login = ({ navigation }) => {
                                 secureTextEntry={isPasswordVisible}
                                 value={password}
                                 // onChangeText={(text) => { setPassword(text) }}
-                                onChangeText={(text) => { setPassword(text), setCheck(false), setUserPass('') }}
+                                onChangeText={(text) => { setPassword(text), setCheck(false)}}
                             />
                             <TouchableOpacity
                                 style={{

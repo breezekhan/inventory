@@ -30,6 +30,8 @@ import Product_Detail from "../Container/Screens/product_detail";
 import Cart from "../Container/Screens/cart";
 import SignUp from "../Container/Screens/signup";
 import { useSelector } from "react-redux";
+import CheckOut from "../Container/Screens/checkout";
+import Edit from "../Container/Screens/edit";
 
 
 
@@ -67,6 +69,8 @@ const HomeTab = () => {
             <HomeTabStack.Screen name="profile" component={Profile} options={{ headerShown: false }} />
             <HomeTabStack.Screen name="product_detail" component={Product_Detail} options={{ headerShown: false }} />
             <HomeTabStack.Screen name="cart" component={Cart} options={{ headerShown: false }} />
+            <HomeTabStack.Screen name="checkout" component={CheckOut} options={{ headerShown: false }} />
+            <HomeTabStack.Screen name="edit" component={Edit} options={{ headerShown: false }} />
         </HomeTabStack.Navigator>
     )
 };
@@ -75,6 +79,8 @@ const ProductTab = () => {
     return (
         <ProductTabStack.Navigator initialRouteName="cart">
             <ProductTabStack.Screen name="cart" component={Cart} options={{ headerShown: false }} />
+            <ProductTabStack.Screen name="checkout" component={CheckOut} options={{ headerShown: false }} />
+            <ProductTabStack.Screen name="edit" component={Edit} options={{ headerShown: false }} />
         </ProductTabStack.Navigator>
     )
 };
@@ -86,6 +92,7 @@ const ProfileTab = () => {
         <ProfileTabStack.Navigator initialRouteName="profile">
             <ProfileTabStack.Screen name="home" component={Home} options={{ headerShown: false }} />
             <ProfileTabStack.Screen name="profile" component={Profile} options={{ headerShown: false }} />
+            <ProfileTabStack.Screen name="edit" component={Edit} options={{ headerShown: false }} />
 
         </ProfileTabStack.Navigator>
     )

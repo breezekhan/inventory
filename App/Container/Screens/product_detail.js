@@ -1,21 +1,17 @@
-import { View, Text, ScrollView, TouchableOpacity, BackHandler, Image, TouchableWithoutFeedback, Modal, FlatList } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity, BackHandler, Image } from 'react-native'
 import React, { useEffect, useState, useMemo, useRef } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import styles from '../Styles/pro_detail_style'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 import LoadingModal from '../../Utils/LoadingModal';
-import Images from '../../Utils/Images';
-import { getCompId, getUserId, getUserPhone } from '../../Utils/MasterFunctions';
+
 import { Colors } from '../../helpers';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { useRoute } from '@react-navigation/native';
 import { useFocusEffect } from '@react-navigation/native';
-
-
-
 import { showToast } from '../../Utils/Utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductToMyCart, deleteMyCartitem, removeMyCartitem } from '../../Utils/Redux/MyCartSlice';
@@ -24,14 +20,10 @@ const Product_Detail = ({ navigation }) => {
     const route = useRoute();
     const [loading, setLoading] = useState(false);
     const [qty, setQty] = useState(1);
-    const [fillid, setFillId] = useState(1);
-    const [fillname, setFillName] = useState(null);
-    const [more, setMore] = useState(false);
+    
+    
     const [data, setData] = useState([]);
-    const [url, setUrl] = useState("");
-    const [image, setImage] = useState([]);
-    const [similar, setSimilarData] = useState([]);
-    const [modalVisible, setModalVisible] = useState(false);
+   
     const currentScreenName = route.name;
     const handleBackPress = () => {
         if (currentScreenName === "home") {
@@ -91,30 +83,22 @@ const Product_Detail = ({ navigation }) => {
             id: product.id,
             name: product.title,
             price: product.price,
-            // discount: product.discount_price,
-            // totalAmt: product.price - product.discount_price,
-            // gstAmt: ((product.price - product.discount_price) * product.gst) / 100,
+           
+           
             subtotal: product.price  * qty,
-            /// price_total: ((((product.price - product.discount_price) * product.gst) / 100) + (product.price - product.discount_price)) * qty,
-            // subtotal: (product.price - product.discount_price) * qty,
-            // price_total: (product.price - product.discount_price),
+           
             qty: qty,
             image: product.image,
-            // gst: product.gst,
-            // stock: product.stock_quantity,
-            // whole_sale_price: product.whole_sale_price
+           
         };
     }, [data, qty]);
 
 
-    // console.log("myyyyyyyyy", item)
+   
 
 
     const existingCartItem = myCartItems.find(cartItem => cartItem.id === route.params.data.id);
-    // console.log("yooooooooooooooooooo", existingCartItem)
-
-
-
+    
 
     return (
         <View style={styles.Container}>

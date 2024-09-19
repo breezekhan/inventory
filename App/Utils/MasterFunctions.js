@@ -63,6 +63,13 @@ export async function getUserPhone() {
 
 
 //
+export async function setUserAdd(add) {
+    await AsyncStorage.setItem('userAdd', add)
+}
+export async function getUserAdd() {
+    let userAdd = await AsyncStorage.getItem('userAdd')
+    return userAdd
+}
 
 
 

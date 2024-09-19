@@ -26,14 +26,11 @@ const MyCartSlice = createSlice({
                     name: productToAdd.name,
                     price: productToAdd.price,
                     qty: productToAdd.qty,
-                    // totalAmt: productToAdd.totalAmt,
+                   
                     subtotal: productToAdd.subtotal,
-                    // gst: productToAdd.gst,
+                   
                     image: productToAdd.image,
-                    // discount: productToAdd.discount,
-                    // gstAmt:productToAdd.gstAmt,
-                    // price_total:productToAdd.price_total,
-                    // whole_sale_price:productToAdd.whole_sale_price
+                  
                 });
             }
         },
@@ -66,14 +63,11 @@ const MyCartSlice = createSlice({
                     name: productToAdd.name,
                     price: productToAdd.price,
                     qty: productToAdd.qty,
-                    // totalAmt: productToAdd.totalAmt,
+                    
                     subtotal: productToAdd.subtotal,
-                    // gst: productToAdd.gst,
+                    
                     image: productToAdd.image,
-                    // discount: productToAdd.discount,
-                    // gstAmt:productToAdd.gstAmt,
-                    // price_total:productToAdd.price_total,
-                    // whole_sale_price:productToAdd.whole_sale_price
+                    
                    
                 });
             }

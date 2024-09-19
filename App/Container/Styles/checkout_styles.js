@@ -13,6 +13,28 @@ const styles = StyleSheet.create({
         //alignSelf:'flex-start',
         color: Colors.black
     },
+    modal: {
+        flex: 1,
+        //backgroundColor: "grey",
+        alignItems: "center",
+        justifyContent: "center",
+      },
+      modalV: {
+        backgroundColor: "#ffffff",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "40%",
+        width: "80%",
+        borderRadius: "2%",
+      },
+      shadowProp: {
+        shadowOffset: { width: -2, height: 4 },
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        elevation: 3,
+        zIndex: 1,
+    },
     text_sel: {
         fontSize: wp('3.5%'),
         fontFamily: Fonts.Lato_Reguler,
@@ -22,6 +44,12 @@ const styles = StyleSheet.create({
         fontSize: wp('6%'),
         color: Colors.Primary,
         fontFamily: Fonts.Lato_Bold,
+        marginVertical: hp('0.5%'),
+    },
+    text_modal: {
+        fontSize: wp('6%'),
+        color: Colors.Primary,
+       fontWeight:'bold',
         marginVertical: hp('0.5%'),
     },
     text_bold: {
@@ -35,6 +63,14 @@ const styles = StyleSheet.create({
         color: Colors.dark_grey,
         fontFamily: Fonts.Lato_Bold,
         width: wp('40%'),
+        marginVertical: hp('0.5%'),
+
+    },
+    text_final: {
+        fontSize: wp('4%'),
+        color: Colors.dark_grey,
+        fontFamily: Fonts.Lato_Bold,
+       // width: wp('40%'),
         marginVertical: hp('0.5%'),
 
     },
@@ -84,7 +120,7 @@ const styles = StyleSheet.create({
         // justifyContent: 'flex-end',
          alignItems: 'center',
          marginVertical:hp('0.5%'),
-         marginHorizontal:wp("2%")
+       alignSelf:'flex-end'
          //backgroundColor:'pink'
      },
     box: {
@@ -177,7 +213,7 @@ txt_underline: {
 },
 button: {
     alignItems: 'center',
-//   alignSelf:'flex-end',
+  alignSelf:'flex-end',
     justifyContent: 'center',
    
      backgroundColor: Colors.Button,
@@ -303,6 +339,8 @@ itemTextStyle: {
     color: 'black',
     marginVertical:wp('-4%')
 },
-
+itemContainerStyle: {
+   // paddingVertical: wp('-10%'),  // Adjust this value to increase/decrease the vertical space between items
+},
 })
 export default styles;

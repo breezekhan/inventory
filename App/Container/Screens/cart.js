@@ -1,24 +1,22 @@
-import { View, Text, ScrollView, TouchableOpacity, Image, Linking, FlatList, Modal, TouchableWithoutFeedback, StyleSheet, ToastAndroid } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity, Image,FlatList} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import styles from '../Styles/cart_style';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import Images from '../../Utils/Images';
+
 import { Colors } from '../../helpers';
 import LoadingModal from '../../Utils/LoadingModal';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { HttpCallGet } from '../../Utils/Get_Api';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRoute } from '@react-navigation/native';
-import { Dropdown } from 'react-native-element-dropdown';
-//import DropdownComponent from '../../Components/dropdown';
+
 import { addProductToMyCart, clearMyCart, deleteMyCartitem, removeMyCartitem } from '../../Utils/Redux/MyCartSlice';
 import { orEmptyString, showToast } from '../../Utils/Utils';
-import { getCompId, getUserId } from '../../Utils/MasterFunctions';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 const Cart = ({ navigation }) => {
   const route = useRoute();
   const [loading, setLoading] = useState(false);
@@ -119,9 +117,9 @@ const Cart = ({ navigation }) => {
           <Text style={styles.txt_underline}>${getTotal(myCartItems)}</Text>
         </View>
         <TouchableOpacity style={[styles.button, {}]}
-          onPress={() => PLACE_ORDER()}
+          onPress={() => navigation.navigate("checkout",{data:myCartItems})}
         >
-          <Text style={styles.text_bold}>Place order</Text>
+          <Text style={styles.text_bold}>Check Out</Text>
         </TouchableOpacity>
         </View>
 }

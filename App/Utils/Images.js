@@ -8,6 +8,8 @@ const Images = {
     Loader: require('../Assets/loader.gif'),
    
     Splash:require('../Assets/splash.png'),
+
+    Placed:require('../Assets/placed.png'),
    
 
    
@@ -15,7 +17,7 @@ const Images = {
 
     Reel:require('../Assets/reel.jpg'),
     Reel1:require('../Assets/reel1.jpg'),
-    Reel2:require('../Assets/reel.jpg'),
+    Reel2:require('../Assets/reel2.jpg'),
    
 }
 
